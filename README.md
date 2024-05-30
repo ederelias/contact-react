@@ -1,46 +1,159 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Contacts App
 
-## Available Scripts
+A responsive contacts application that allows users to browse, search, sort, and view detailed information about their contacts.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Using Makefile](#using-makefile)
+- [Project Structure](#project-structure)
+- [API](#api)
+- [Testing](#testing)
+- [Contributing](#contributing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Browse Contacts:** View a list of contacts with their names, emails, and phone numbers.
+- **Search Contacts:** Filter contacts by name using a search bar.
+- **Sort Contacts:** Order contacts by name (ascending/descending) or email (ascending/descending).
+- **View Contact Details:** Click on a contact card to see more details about the contact (address, company information, etc.).
+- **Responsive Design:** The application adapts to different screen sizes, providing a seamless experience on desktop and mobile devices.
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend:**
+  - React with TypeScript
+  - React Router for navigation
+  - Material UI for UI components
+  - Axios for API requests
+- **API:**
+  - JSONPlaceholder (https://jsonplaceholder.typicode.com/) for mock contact data
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Install Dependencies:**
+   ```bash
+   cd contact-list
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+1. **Start the Development Server:**
+   ```bash
+   npm start
+   ```
+2. **Open in Browser:** Navigate to [http://localhost:3000](http://localhost:3000) to access the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Using Makefile
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For convenience, you can also use a Makefile to manage common tasks.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Install Dependencies:**
+   ```bash
+   make install
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Start the Development Server:**
+   ```bash
+   make start
+   ```
 
-## Learn More
+3. **Build the Project:**
+   ```bash
+   make build
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Run Tests:**
+   ```bash
+   make test
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Clean the Project:**
+   ```bash
+   make clean
+   ```
+
+### Using Docker with Makefile
+
+1. **Build Docker Image:**
+   ```bash
+   make docker-build
+   ```
+
+2. **Run Docker Container:**
+   ```bash
+   make docker-run
+   ```
+
+3. **Run Development Server in Docker:**
+   ```bash
+   make docker-dev
+   ```
+
+4. **Stop Docker Container:**
+   ```bash
+   make docker-stop
+   ```
+
+5. **Clean Docker Images and Containers:**
+   ```bash
+   make docker-clean
+   ```
+
+## Project Structure
+
+```txt
+my-contacts-app/
+├── src/
+│   ├── components/
+│   │   ├── contact/
+│   │   │   ├── ContactCard.tsx
+│   │   │   ├── ContactDetails.tsx
+│   │   │   └── ContactList.tsx
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Sidebar.tsx
+│   ├── data/
+│   │   └── api.ts
+│   ├── types/
+│   │   └── types.ts
+│   ├── App.tsx
+│   ├── index.tsx
+└── package.json
+└── test/
+    ├── ContactCard.test.tsx
+    ├── ContactDetails.test.tsx
+    └── ContactList.test.tsx
+```
+
+**components/contact/:** Contains the React components for displaying and interacting with contact data.
+
+**layout/:** Contains the React components for the layout of the application.
+
+**data/:** Contains modules for fetching and managing data.
+
+**types/:** Contains TypeScript interfaces that define the shape of data structures used in the app.
+
+**test/:** Contains Jest test files for the components.
+
+## API
+
+The application uses the JSONPlaceholder API to fetch mock contact data. The API endpoint is [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users).
+
+## Testing
+
+This project uses Jest and React Testing Library for testing components. Run tests using:
+
+```bash
+npm test
+```
+
+## Contributing
+
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.

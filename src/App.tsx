@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Box, Container } from '@mui/material';
+import Header from './layout/Header';
+import Sidebar from './layout/Sidebar';
+import ContactList from './components/contact/ContactList';
+import ContactDetails from './components/contact/ContactDetails';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+            <Router>
+                <Header />
+                <Box sx={{ display: 'flex' }}>
+                    <Sidebar />
+                    <Container maxWidth="md" sx={{ marginTop: 4, marginLeft: 2 }}>
+                        <Routes>
+                            <Route path="/" element={<ContactList />} />
+                            <Route path="/contacts/:contactId" element={<ContactDetails />} />
+                        </Routes>
+                    </Container>
+                </Box>
+            </Router>
+        );
+    }
 }
 
 export default App;
